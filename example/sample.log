@@ -1,0 +1,445 @@
+2026-10-16 14:39:44.348 UTC [72660] LOG:  parse tree:
+2026-10-16 14:39:44.348 UTC [72660] DETAIL:     {QUERY 
+	   :commandType 1 
+	   :querySource 0 
+	   :canSetTag true 
+	   :utilityStmt <> 
+	   :resultRelation 0 
+	   :hasAggs false 
+	   :hasWindowFuncs false 
+	   :hasTargetSRFs false 
+	   :hasSubLinks false 
+	   :hasDistinctOn false 
+	   :hasRecursive false 
+	   :hasModifyingCTE false 
+	   :hasForUpdate false 
+	   :hasRowSecurity false 
+	   :hasGroupRTE false 
+	   :isReturn false 
+	   :cteList <> 
+	   :rtable (
+	      {RANGETBLENTRY 
+	      :alias <> 
+	      :eref 
+	         {ALIAS 
+	         :aliasname tbl 
+	         :colnames ("id" "data")
+	         }
+	      :rtekind 0 
+	      :relid 22157 
+	      :inh true 
+	      :relkind r 
+	      :rellockmode 1 
+	      :perminfoindex 1 
+	      :tablesample <> 
+	      :lateral false 
+	      :inFromCl true 
+	      :securityQuals <>
+	      }
+	   )
+	   :rteperminfos (
+	      {RTEPERMISSIONINFO 
+	      :relid 22157 
+	      :inh true 
+	      :requiredPerms 2 
+	      :checkAsUser 0 
+	      :selectedCols (b 8 9)
+	      :insertedCols (b)
+	      :updatedCols (b)
+	      }
+	   )
+	   :jointree 
+	      {FROMEXPR 
+	      :fromlist (
+	         {RANGETBLREF 
+	         :rtindex 1
+	         }
+	      )
+	      :quals 
+	         {OPEXPR 
+	         :opno 97 
+	         :opfuncid 66 
+	         :opresulttype 16 
+	         :opretset false 
+	         :opcollid 0 
+	         :inputcollid 0 
+	         :args (
+	            {VAR 
+	            :varno 1 
+	            :varattno 1 
+	            :vartype 23 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varnullingrels (b)
+	            :varlevelsup 0 
+	            :varreturningtype 0 
+	            :varnosyn 1 
+	            :varattnosyn 1 
+	            :location 24
+	            }
+	            {CONST 
+	            :consttype 23 
+	            :consttypmod -1 
+	            :constcollid 0 
+	            :constlen 4 
+	            :constbyval true 
+	            :constisnull false 
+	            :location 29 
+	            :constvalue 4 [ 44 1 0 0 0 0 0 0 ]
+	            }
+	         )
+	         :location 27
+	         }
+	      }
+	   :mergeActionList <> 
+	   :mergeTargetRelation 0 
+	   :mergeJoinCondition <> 
+	   :targetList (
+	      {TARGETENTRY 
+	      :expr 
+	         {VAR 
+	         :varno 1 
+	         :varattno 1 
+	         :vartype 23 
+	         :vartypmod -1 
+	         :varcollid 0 
+	         :varnullingrels (b)
+	         :varlevelsup 0 
+	         :varreturningtype 0 
+	         :varnosyn 1 
+	         :varattnosyn 1 
+	         :location 7
+	         }
+	      :resno 1 
+	      :resname id 
+	      :ressortgroupref 0 
+	      :resorigtbl 22157 
+	      :resorigcol 1 
+	      :resjunk false
+	      }
+	      {TARGETENTRY 
+	      :expr 
+	         {VAR 
+	         :varno 1 
+	         :varattno 2 
+	         :vartype 23 
+	         :vartypmod -1 
+	         :varcollid 0 
+	         :varnullingrels (b)
+	         :varlevelsup 0 
+	         :varreturningtype 0 
+	         :varnosyn 1 
+	         :varattnosyn 2 
+	         :location 7
+	         }
+	      :resno 2 
+	      :resname data 
+	      :ressortgroupref 1 
+	      :resorigtbl 22157 
+	      :resorigcol 2 
+	      :resjunk false
+	      }
+	   )
+	   :override 0 
+	   :onConflict <> 
+	   :returningOldAlias <> 
+	   :returningNewAlias <> 
+	   :returningList <> 
+	   :groupClause <> 
+	   :groupDistinct false 
+	   :groupingSets <> 
+	   :havingQual <> 
+	   :windowClause <> 
+	   :distinctClause <> 
+	   :sortClause (
+	      {SORTGROUPCLAUSE 
+	      :tleSortGroupRef 1 
+	      :eqop 96 
+	      :sortop 97 
+	      :reverse_sort false 
+	      :nulls_first false 
+	      :hashable true
+	      }
+	   )
+	   :limitOffset <> 
+	   :limitCount <> 
+	   :limitOption 0 
+	   :rowMarks <> 
+	   :setOperations <> 
+	   :constraintDeps <> 
+	   :withCheckOptions <> 
+	   :stmt_location 0 
+	   :stmt_len 46
+	   }
+	
+2026-10-16 14:39:44.348 UTC [72660] STATEMENT:  SELECT * FROM tbl WHERE id < 300 ORDER BY data;
+2026-10-16 14:39:44.352 UTC [72660] LOG:  plan:
+2026-10-16 14:39:44.352 UTC [72660] DETAIL:     {PLANNEDSTMT 
+	   :commandType 1 
+	   :queryId 0 
+	   :planId 0 
+	   :hasReturning false 
+	   :hasModifyingCTE false 
+	   :canSetTag true 
+	   :transientPlan false 
+	   :dependsOnRole false 
+	   :parallelModeNeeded false 
+	   :jitFlags 0 
+	   :planTree 
+	      {SORT 
+	      :plan.disabled_nodes 0 
+	      :plan.startup_cost 26.812382502926177 
+	      :plan.total_cost 27.559882502926175 
+	      :plan.plan_rows 299 
+	      :plan.plan_width 8 
+	      :plan.parallel_aware false 
+	      :plan.parallel_safe true 
+	      :plan.async_capable false 
+	      :plan.plan_node_id 0 
+	      :plan.targetlist (
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno -2 
+	            :varattno 1 
+	            :vartype 23 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varnullingrels (b)
+	            :varlevelsup 0 
+	            :varreturningtype 0 
+	            :varnosyn 1 
+	            :varattnosyn 1 
+	            :location -1
+	            }
+	         :resno 1 
+	         :resname id 
+	         :ressortgroupref 0 
+	         :resorigtbl 22157 
+	         :resorigcol 1 
+	         :resjunk false
+	         }
+	         {TARGETENTRY 
+	         :expr 
+	            {VAR 
+	            :varno -2 
+	            :varattno 2 
+	            :vartype 23 
+	            :vartypmod -1 
+	            :varcollid 0 
+	            :varnullingrels (b)
+	            :varlevelsup 0 
+	            :varreturningtype 0 
+	            :varnosyn 1 
+	            :varattnosyn 2 
+	            :location -1
+	            }
+	         :resno 2 
+	         :resname data 
+	         :ressortgroupref 1 
+	         :resorigtbl 22157 
+	         :resorigcol 2 
+	         :resjunk false
+	         }
+	      )
+	      :plan.qual <> 
+	      :plan.lefttree 
+	         {INDEXSCAN 
+	         :scan.plan.disabled_nodes 0 
+	         :scan.plan.startup_cost 0.28500000000000003 
+	         :scan.plan.total_cost 14.5175 
+	         :scan.plan.plan_rows 299 
+	         :scan.plan.plan_width 8 
+	         :scan.plan.parallel_aware false 
+	         :scan.plan.parallel_safe true 
+	         :scan.plan.async_capable false 
+	         :scan.plan.plan_node_id 1 
+	         :scan.plan.targetlist (
+	            {TARGETENTRY 
+	            :expr 
+	               {VAR 
+	               :varno 1 
+	               :varattno 1 
+	               :vartype 23 
+	               :vartypmod -1 
+	               :varcollid 0 
+	               :varnullingrels (b)
+	               :varlevelsup 0 
+	               :varreturningtype 0 
+	               :varnosyn 1 
+	               :varattnosyn 1 
+	               :location 7
+	               }
+	            :resno 1 
+	            :resname id 
+	            :ressortgroupref 0 
+	            :resorigtbl 22157 
+	            :resorigcol 1 
+	            :resjunk false
+	            }
+	            {TARGETENTRY 
+	            :expr 
+	               {VAR 
+	               :varno 1 
+	               :varattno 2 
+	               :vartype 23 
+	               :vartypmod -1 
+	               :varcollid 0 
+	               :varnullingrels (b)
+	               :varlevelsup 0 
+	               :varreturningtype 0 
+	               :varnosyn 1 
+	               :varattnosyn 2 
+	               :location 7
+	               }
+	            :resno 2 
+	            :resname data 
+	            :ressortgroupref 1 
+	            :resorigtbl 22157 
+	            :resorigcol 2 
+	            :resjunk false
+	            }
+	         )
+	         :scan.plan.qual <> 
+	         :scan.plan.lefttree <> 
+	         :scan.plan.righttree <> 
+	         :scan.plan.initPlan <> 
+	         :scan.plan.extParam (b)
+	         :scan.plan.allParam (b)
+	         :scan.scanrelid 1 
+	         :indexid 22161 
+	         :indexqual (
+	            {OPEXPR 
+	            :opno 97 
+	            :opfuncid 66 
+	            :opresulttype 16 
+	            :opretset false 
+	            :opcollid 0 
+	            :inputcollid 0 
+	            :args (
+	               {VAR 
+	               :varno -3 
+	               :varattno 1 
+	               :vartype 23 
+	               :vartypmod -1 
+	               :varcollid 0 
+	               :varnullingrels (b)
+	               :varlevelsup 0 
+	               :varreturningtype 0 
+	               :varnosyn 1 
+	               :varattnosyn 1 
+	               :location 24
+	               }
+	               {CONST 
+	               :consttype 23 
+	               :consttypmod -1 
+	               :constcollid 0 
+	               :constlen 4 
+	               :constbyval true 
+	               :constisnull false 
+	               :location 29 
+	               :constvalue 4 [ 44 1 0 0 0 0 0 0 ]
+	               }
+	            )
+	            :location 27
+	            }
+	         )
+	         :indexqualorig (
+	            {OPEXPR 
+	            :opno 97 
+	            :opfuncid 66 
+	            :opresulttype 16 
+	            :opretset false 
+	            :opcollid 0 
+	            :inputcollid 0 
+	            :args (
+	               {VAR 
+	               :varno 1 
+	               :varattno 1 
+	               :vartype 23 
+	               :vartypmod -1 
+	               :varcollid 0 
+	               :varnullingrels (b)
+	               :varlevelsup 0 
+	               :varreturningtype 0 
+	               :varnosyn 1 
+	               :varattnosyn 1 
+	               :location 24
+	               }
+	               {CONST 
+	               :consttype 23 
+	               :consttypmod -1 
+	               :constcollid 0 
+	               :constlen 4 
+	               :constbyval true 
+	               :constisnull false 
+	               :location 29 
+	               :constvalue 4 [ 44 1 0 0 0 0 0 0 ]
+	               }
+	            )
+	            :location 27
+	            }
+	         )
+	         :indexorderby <> 
+	         :indexorderbyorig <> 
+	         :indexorderbyops <> 
+	         :indexorderdir 1
+	         }
+	      :plan.righttree <> 
+	      :plan.initPlan <> 
+	      :plan.extParam (b)
+	      :plan.allParam (b)
+	      :numCols 1 
+	      :sortColIdx ( 2)
+	      :sortOperators ( 97)
+	      :collations ( 0)
+	      :nullsFirst ( false)
+	      }
+	   :partPruneInfos <> 
+	   :rtable (
+	      {RANGETBLENTRY 
+	      :alias <> 
+	      :eref 
+	         {ALIAS 
+	         :aliasname tbl 
+	         :colnames ("id" "data")
+	         }
+	      :rtekind 0 
+	      :relid 22157 
+	      :inh false 
+	      :relkind r 
+	      :rellockmode 1 
+	      :perminfoindex 1 
+	      :tablesample <> 
+	      :lateral false 
+	      :inFromCl true 
+	      :securityQuals <>
+	      }
+	   )
+	   :unprunableRelids (b 1)
+	   :permInfos (
+	      {RTEPERMISSIONINFO 
+	      :relid 22157 
+	      :inh true 
+	      :requiredPerms 2 
+	      :checkAsUser 0 
+	      :selectedCols (b 8 9)
+	      :insertedCols (b)
+	      :updatedCols (b)
+	      }
+	   )
+	   :resultRelations <> 
+	   :appendRelations <> 
+	   :subplans <> 
+	   :rewindPlanIDs (b)
+	   :rowMarks <> 
+	   :relationOids (o 22157)
+	   :invalItems <> 
+	   :paramExecTypes <> 
+	   :utilityStmt <> 
+	   :stmt_location 0 
+	   :stmt_len 46
+	   }
+	
+2026-10-16 14:39:44.352 UTC [72660] STATEMENT:  SELECT * FROM tbl WHERE id < 300 ORDER BY data;
+
